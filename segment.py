@@ -107,7 +107,7 @@ class SimpleSegment(object):
             for i, poly_coord in enumerate(poly_coords[poly_id][1:]):
                 # reconstruct neccessary structures
                 obj_id = self.canvas.create_line(poly_coord[0], poly_coord[1], x1, y1,
-                        fill='red', width=5)
+                        fill='red', width=2)
                 x1, y1 = poly_coord[0], poly_coord[1]
                 self.object_ids[self.poly_count].append(obj_id)
                 self.poly_coords[self.poly_count].append(point(x=poly_coord[0], y=poly_coord[1]))
@@ -147,7 +147,7 @@ class SimpleSegment(object):
             x, y = event.x, event.y
             if self.canvas.old_coords:
                 x1, y1 = self.canvas.old_coords
-                obj_id = self.canvas.create_line(x, y, x1, y1, fill='red', width=5)
+                obj_id = self.canvas.create_line(x, y, x1, y1, fill='red', width=2)
                 self.object_ids[self.poly_count].append(obj_id)
                 self.poly_coords[self.poly_count].append(point(x=x, y=y))
             self.canvas.old_coords = x, y
