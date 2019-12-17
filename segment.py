@@ -158,5 +158,6 @@ if __name__ == '__main__':
              required=True)
      ap.add_argument('--label-directory', type=str, help='directory to save JSON labels in',
              required=True)
+     ap.add_argument('--image-extension', type=str, help='extension of images', default='png')
      args = ap.parse_args()
-     SimpleSegment(args.image_directory, args.label_directory)
+     SimpleSegment(args.image_directory, args.label_directory, image_extension=args.image_extension)
