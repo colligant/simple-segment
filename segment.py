@@ -1,4 +1,5 @@
 import tkinter as tk
+from numpy import sqrt
 from collections import defaultdict, namedtuple
 from json import dump, load
 from os import remove
@@ -50,7 +51,7 @@ class SimpleSegment(object):
         self._update_string()
 
     def _update_string(self):
-        string_to_format = 'k: next image, j: prev image, h: skip 100 back. l: skip 100 forward. u: remove polygon. d: delete all labels. images: {} of {}'
+        string_to_format = 'right click to start and stop drawing. k: next image, j: prev image, h: skip 100 back. l: skip 100 forward. u: remove polygon. d: delete all labels. images: {} of {}'
         string = string_to_format.format(self.image_index+1, len(self.files))
         self.info_box.set(string)
 
@@ -153,6 +154,7 @@ class SimpleSegment(object):
             self.canvas.old_coords = x, y
 
 if __name__ == '__main__':
+
      ap = ArgumentParser()
      ap.add_argument('--image-directory', type=str, help='directory where the images are stored',
              required=True)
